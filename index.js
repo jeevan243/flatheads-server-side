@@ -3,15 +3,17 @@ const connect = require("./src/config/db");
 
 const productsContrller = require("./src/controllers/product.controller");
 
-
 const Port1 = process.env.PORT || 1234;
 const app = express();
 app.use(express.json());
 app.use("/products", productsContrller);
-
-
-
-
+app.get("/", async (req, res) => {
+  try {
+    return res.send("Server is Live Now");
+  } catch (error) {
+    return res.send(error.message);
+  }
+});
 
 app.listen(Port1, async (req, res) => {
   try {
