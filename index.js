@@ -15,7 +15,7 @@ app.use("/products", productsContrller);
 
 app.listen(Port1, async (req, res) => {
   try {
-    connect();
+    await connect();
     console.log(`Connected to the ${Port1}`);
   } catch (error) {
     console.log(error.message);
