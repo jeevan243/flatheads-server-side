@@ -19,4 +19,14 @@ router.get("/", async (req, res) => {
   } catch (error) {}
 });
 
+router.patch("/:id", async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    return res.send({ Product: product });
+  } catch (error) {}
+});
+
 module.exports = router;
