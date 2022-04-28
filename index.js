@@ -1,12 +1,15 @@
 const express = require("express");
 const connect = require("./src/config/db");
 require("dotenv").config()
+const cors = require("cors")
 
 const productsContrller = require("./src/controllers/product.controller");
 
 const Port1 = process.env.PORT || 1234;
 const app = express();
 app.use(express.json());
+
+app.use(cors())
 
 
 app.use("/products", productsContrller);
